@@ -6,12 +6,9 @@ import re
 
 
 from recommender import MovieRecommender
-from dotenv import load_dotenv
-import os
+import streamlit as st
 
-load_dotenv()
-
-API_KEY = os.getenv("TMDB_API_KEY")
+API_KEY = st.secrets.get("TMDB_API_KEY")
 
 if not API_KEY:
     st.error("API key not loaded!")
